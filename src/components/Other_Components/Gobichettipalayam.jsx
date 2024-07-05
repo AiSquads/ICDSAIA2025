@@ -1,7 +1,4 @@
 import React from "react";
-// Adjust path based on your actual file structure
-
-// Import images
 import agricultureImage from "../../assets/images/gobi/agri.jpg";
 import kodiveriImage from "../../assets/images/gobi/kodiveri2.jpg";
 import pachamalaiImage from "../../assets/images/gobi/pachamalai.jpg";
@@ -126,60 +123,70 @@ const Gobichettipalayam = () => {
           </div>
 
           {/* Section 5: Gallery */}
-          <div>
-            <div className="about_heads">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-                Gallery
-              </h2>
-            </div>
-            <div className="gallery">
-              <div className="gallery-wrapper grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                <div className="relative">
-                  <img
-                    src={pachamalaiImage}
-                    alt="Pachaimalai"
-                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-110"
-                  />
+          <section className="gallery mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="relative group">
+                <img
+                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+                  src={pachamalaiImage}
+                  alt="Pachamalai"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                  <p className="text-white text-lg">Pachamalai</p>
                 </div>
-                <div className="relative">
-                  <img
-                    src={pariImage}
-                    alt="Pariyur Kondathu Kaliamman Temple"
-                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-110"
-                  />
+              </div>
+              <div className="relative group">
+                <img
+                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+                  src={pariImage}
+                  alt="Pariyur"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                  <p className="text-white text-lg">Pariyur</p>
                 </div>
-                <div className="relative">
-                  <img
-                    src={gunderipallamImage}
-                    alt="Gunderipallam Dam"
-                    style={{ filter: "contrast(100%) brightness(100%)" }}
-                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-110"
-                  />
+              </div>
+              <div className="relative group">
+                <img
+                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+                  src={gunderipallamImage}
+                  alt="Gunderipallam"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                  <p className="text-white text-lg">Gunderipallam</p>
                 </div>
-                <div className="relative">
-                  <img
-                    src={perumpallamImage}
-                    alt="Perumpallam Dam"
-                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-110"
-                  />
+              </div>
+              <div className="relative group">
+                <img
+                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+                  src={perumpallamImage}
+                  alt="Perumpallam"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                  <p className="text-white text-lg">Perumpallam</p>
                 </div>
-                <div className="relative">
-                  <img
-                    src={agricultureImage}
-                    alt="Agriculture"
-                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-110"
-                  />
+              </div>
+              <div className="relative group">
+                <img
+                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+                  src={agricultureImage}
+                  alt="Agriculture"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                  <p className="text-white text-lg">Agriculture</p>
                 </div>
-                <div className="relative">
-                  <img
-                    src={kodiveriImage}
-                    alt="Kodiveri Dam"
-                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-500 transform hover:scale-110"
-                  />
+              </div>
+              <div className="relative group">
+                <img
+                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+                  src={kodiveriImage}
+                  alt="Kodiveri Dam"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                  <p className="text-white text-lg">Kodiveri Dam</p>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </main>
     </div>

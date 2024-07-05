@@ -16,6 +16,7 @@ import Submission from "./components/Pages/Submission";
 import Publication from './components/Pages/Publication';
 import PageUnderConstruction from './components/Other_Components/PageUnderConstruction';
 import Gobichettipalayam from './components/Other_Components/Gobichettipalayam';
+import Tectovia from './components/Other_Components/Tectovia';
 
 const AppRouter = () => (
   <Router>
@@ -34,6 +35,7 @@ const AppRouter = () => (
       <Route path="/accom" element={<PageUnderConstruction />} />
 
       <Route path="/gobi" element={<Gobichettipalayam />} />
+      <Route path="/tectovia" element={<Tectovia />} />
       
       <Route path="/experience" element={<Experience />} />
       <Route path="/messages" element={<Massegs />} />
