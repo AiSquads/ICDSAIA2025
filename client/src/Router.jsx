@@ -18,6 +18,8 @@ import PageUnderConstruction from './components/Other_Components/PageUnderConstr
 import Gobichettipalayam from './components/Other_Components/Gobichettipalayam';
 import Tectovia from './components/Other_Components/Tectovia';
 import Date from './components/Pages/Date';
+import Register from './components/Form_Components/Register';
+import Faq from "./components/Form_Components/Faq";
 
 const AppRouter = () => (
   <Router>
@@ -30,15 +32,17 @@ const AppRouter = () => (
       <Route path="/venue" element={<Venue />} />
       <Route path="/submission" element={<Submission />} />
       <Route path="/publication" element={<Publication />} />
+      <Route path="/registration" element={<Register />} />
       <Route path="/contact" element={<Contact />} />
 
       <Route path="/date" element={<Date />} />
 
       <Route path="/dwnld" element={<PageUnderConstruction />} />
       <Route path="/accom" element={<PageUnderConstruction />} />
-
+      <Route path="/faq" element={<Faq />} />
       <Route path="/gobi" element={<Gobichettipalayam />} />
       <Route path="/tectovia" element={<Tectovia />} />
+      
       
       <Route path="/experience" element={<Experience />} />
       <Route path="/messages" element={<Massegs />} />
