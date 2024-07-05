@@ -63,9 +63,9 @@ const Header = () => {
             <li className="items">
               <Link to="/venue">Venue</Link>
             </li>
-            {/* <li className="items">
-              <a href="index.html#date">Dates</a>
-            </li> */}
+            <li className="items">
+              <a href="/date">Dates</a>
+            </li>
             <li className="items dropdown">
               <div className="nav_dropdown">
                 <a href="#">About</a>
