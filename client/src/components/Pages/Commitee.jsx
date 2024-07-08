@@ -1,8 +1,88 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import "../../assets/css/committe.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Committee = () => {
+  useEffect(() => {
+    const elementsToReveal = document.querySelectorAll(".committe_box");
+    elementsToReveal.forEach((element) => {
+      gsap.fromTo(
+        element,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  }, []);
+
+  useEffect(() => {
+    const boxes = [
+      ".blur_box_01",
+      ".blur_box_02",
+      ".blur_box_03",
+      ".blur_box_04",
+      ".blur_box_05",
+      ".blur_box_06",
+      ".blur_box_07",
+      ".blur_box_08",
+      ".blur_box_09",
+      ".blur_box_10"
+    ];
+
+    const animations = [
+      { x: -300, y: () => gsap.utils.random(-100, 100) }, // Effect 1
+      { x: 300, y: () => gsap.utils.random(-100, 100) }, // Effect 2
+      { rotation: 360, transformOrigin: "center center" }, // Effect 3
+      { scale: 1.5, transformOrigin: "center center" }, // Effect 4
+      { x: -200, y: -200 }, // Effect 5
+      { x: 200, y: 200 }, // Effect 6
+      { y: () => gsap.utils.random(-300, 300) }, // Effect 7
+      { x: () => gsap.utils.random(-500, 500) }, // Effect 8
+      { rotation: -360, transformOrigin: "center center" }, // Effect 9
+      { scale: 0.5, transformOrigin: "center center" } // Effect 10
+    ];
+
+    boxes.forEach((box, index) => {
+      // Movement animation
+      gsap.to(box, {
+        ...animations[index],
+        duration: () => gsap.utils.random(5, 8),
+        ease: "power1.inOut",
+        repeat: -1,
+        yoyo: true
+      });
+
+      // Scroll reveal animation
+      gsap.fromTo(
+        box,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: box,
+            start: "top 80%",
+            end: "top 20%",
+            scrub: true,
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  }, []);
+
   return (
     <div className="mains">
       <div className="subm_head">
@@ -10,43 +90,62 @@ const Committee = () => {
         <div className="lines"></div>
       </div>
 
+      <div className="blur_boxs">
+        <div className="blur_top">
+          <div className="blur_box_01"></div>
+          <div className="blur_box_02"></div>
+          <div className="blur_box_03"></div>
+          <div className="blur_box_04"></div>
+          <div className="blur_box_05"></div>
+        </div>
+        <div className="blur_bottom">
+          <div className="blur_box_06"></div>
+          <div className="blur_box_07"></div>
+          <div className="blur_box_08"></div>
+          <div className="blur_box_09"></div>
+          <div className="blur_box_10"></div>
+        </div>
+      </div>
+
       <div className="committe_container">
-        <div>
-          {/* Chief Patrons */}
-          <div className="about_heads">
+        {/* Chief Patrons */}
+        <div className="committe_box">
+          <div className="committe_heads">
             <h2>Chief Patrons</h2>
+            <div className="sub_lines"></div>
           </div>
-          <div className="chief">
-            <div>
-              <h3 className="text-black">
-                Er. J. Balamurugan,
-                <br />
-                President,
-                <br />
-                Gobi Arts & Science College (Autonomous),
-                <br />
-                Gobichettipalayam.
-              </h3>
-            </div>
-            <div>
-              <h3>
-                Thiru. M. Dharanidharan,
-                <br />
-                Secretary & Correspondent,
-                <br />
-                Gobi Arts & Science College (Autonomous),
-                <br />
-                Gobichettipalayam.
-              </h3>
-            </div>
+
+          <div className="chief com_01 col_com">
+            <h3>
+              Er. J. Balamurugan,
+              <br />
+              President,
+              <br />
+              Gobi Arts & Science College (Autonomous),
+              <br />
+              Gobichettipalayam.
+            </h3>
+
+            <h3>
+              Thiru. M. Dharanidharan,
+              <br />
+              Secretary & Correspondent,
+              <br />
+              Gobi Arts & Science College (Autonomous),
+              <br />
+              Gobichettipalayam.
+            </h3>
           </div>
         </div>
-        <div>
-          {/* Patrons */}
-          <div className="about_heads">
+
+        {/* Patrons */}
+        <div className="committe_box">
+          <div className="committe_heads">
             <h2>Patron</h2>
+            <div className="sub_lines"></div>
           </div>
-          <div className="chief">
+
+          <div className="chief com_02">
             <h3>
               Prof. Dr. V. Thiagarasu,
               <br />
@@ -58,46 +157,48 @@ const Committee = () => {
             </h3>
           </div>
         </div>
-        <div>
-          {/* Convenors */}
-          <div className="about_heads">
+
+        {/* Convenors */}
+        <div className="committe_box">
+          <div className="committe_heads">
             <h2>Convenors</h2>
+            <div className="sub_lines"></div>
           </div>
-          <div className="chief">
-            <div>
-              <h3>
-                Dr. M. Ramalingam,
-                <br />
-                Associate Professor,
-                <br />
-                Department of Information Technology,
-                <br />
-                Gobi Arts & Science College (Autonomous),
-                <br />
-                Gobichettipalayam.
-              </h3>
-            </div>
-            <div>
-              <h3>
-                Dr. K. Sathishkumar,
-                <br />
-                Assistant Professor,
-                <br />
-                Department of Computer Technology,
-                <br />
-                Gobi Arts & Science College (Autonomous),
-                <br />
-                Gobichettipalayam.
-              </h3>
-            </div>
+
+          <div className="chief com_03 col_com">
+            <h3>
+              Dr. M. Ramalingam,
+              <br />
+              Associate Professor,
+              <br />
+              Department of Information Technology,
+              <br />
+              Gobi Arts & Science College (Autonomous),
+              <br />
+              Gobichettipalayam.
+            </h3>
+            <h3>
+              Dr. K. Sathishkumar,
+              <br />
+              Assistant Professor,
+              <br />
+              Department of Computer Technology,
+              <br />
+              Gobi Arts & Science College (Autonomous),
+              <br />
+              Gobichettipalayam.
+            </h3>
           </div>
         </div>
-        <div>
-          {/* Conference Chair */}
-          <div className="about_heads">
+
+        {/* Conference Chair */}
+        <div className="committe_box">
+          <div className="committe_heads">
             <h2>Conference Chair</h2>
+            <div className="sub_lines"></div>
           </div>
-          <div className="advisory">
+
+          <div className="advisory col_com">
             <h3>
               Dr. K. P. Shanmugapriya,
               <br />
@@ -118,267 +219,228 @@ const Committee = () => {
             </h3>
           </div>
         </div>
-        <div>
-          {/* Conference Committee */}
-          <div className="about_heads">
+
+        {/* Conference Committee */}
+        <div className="committe_box">
+          <div className="committe_heads">
             <h2>Conference Committee</h2>
+            <div className="sub_lines"></div>
           </div>
-          <div className="advisory">
+
+          <div className="advisory col_com">
             <h3>
               Dr. G. A. Mylavathi,
-              <br />
-              Associate Professor, Department of Computer Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Associate Professor,
+              <br /> Department of Computer Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Mrs. S. Poonkodi,
-              <br />
-              Assistant Professor, Department of Information Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Mrs. R. Naleiny,
-              <br />
-              Assistant Professor, Department of Information Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Dr. T. P. Senthilkumar,
-              <br />
-              Assistant Professor, Department of Computer Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Computer Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Mr. P. Sedhupathy,
-              <br />
-              Assistant Professor, Department of Information Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Dr. V. Azhaharasan,
-              <br />
-              Assistant Professor, Department of Information Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Mr. K. Madheswaran,
-              <br />
-              Assistant Professor, Department of Computer Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Computer Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Dr. P. E. Elango,
-              <br />
-              Assistant Professor, Department of Information Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Mr. R. Santhosh,
-              <br />
-              Assistant Professor, Department of Information Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Ms. M. C. Nivetha,
-              <br />
-              Assistant Professor, Department of Information Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Mrs. B. Kiruthika,
-              <br />
-              Assistant Professor, Department of Information Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
             <h3>
               Ms. P. Mythili,
-              <br />
-              Assistant Professor, Department of Computer Technology,
-              <br />
-              Gobi Arts & Science College (Autonomous),
-              <br />
-              Gobichettipalayam.
-            </h3>
-          </div>
-        </div>
-        <div>
-          {/* Advisory Committee */}
-          <div className="about_heads">
-            <h2>Advisory Committee</h2>
-          </div>
-          <div className="advisory">
-            <h3>
-              Dr. S. Anitha,
-              <br />
-              Assistant Professor, Faculty of Science and Humanities,
-              <br />
-              SRM Institute of Science & Technology, Tiruchirappalli, Tamil
-              Nadu.
-            </h3>
-            <h3>
-              Dr. M. Punithavalli,
-              <br />
-              Professor, Bharathiar University, Coimbatore.
-            </h3>
-            <h3>
-              Mr. C. Manikandan,
-              <br />
-              Lead Engineer, Fidelity Investments, Chennai, Tamil Nadu.
-            </h3>
-            <h3>
-              Dr. C. Thirumoorthi,
-              <br />
-              Assistant Professor, PSG College of Arts and Science, Coimbatore.
-            </h3>
-            <h3>
-              Mr. Praveen Hanchinal,
-              <br />
-              Lead, INWHIZZ IT Innovations, Dharwad / Assistant Professor,
-              Computer Science, Govt. First Grade College, Dharwad, India.
-            </h3>
-            <h3>
-              Mr. Selvam Rajalingam Chidambaram,
-              <br />
-              Manager Projects, Cognizant Technology Solutions, Chennai.
-            </h3>
-            <h3>
-              Mr. Nandhakumar Kandasamy,
-              <br />
-              Consultant, Tata Consultancy Services (TCS), Bangalore.
-            </h3>
-            <h3>
-              Prof. Dr. Gladston Raj S,
-              <br />
-              Dept of computer science, Govt. college Nedumangad, Trivandrum
-              695541, Kerala.
-            </h3>
-            <h3>
-              Mr. Sivasankar Subramanian,
-              <br />
-              Senior software engineer, Visa Inc, Bagmane world Technology
-              Centre, Mahadevapura, Bengaluru.
-            </h3>
-            <h3>
-              Dr. N. V. Poornima,
-              <br />
-              Assistant Professor, Department of computer science, Christ
-              (Deemed to be university), Bangalore.
-            </h3>
-            <h3>
-              Dr. M. Krishnaveni,
-              <br />
-              Assistant Professor, Avinashilingam Institute for Home Science and
-              Higher Education for Women, Coimbatore.
-            </h3>
-            <h3>
-              Prof. Dr. Thangavel Kuttiyannan,
-              <br />
-              Professor & Head, Periyar University, Salem.
-            </h3>
-            <h3>
-              Dr. Nagarjun J,
-              <br />
-              Assistant Professor (Sr.G), PSG Institute of Technology and
-              Applied Research, Coimbatore.
+              <br /> Assistant Professor,
+              <br /> Department of Computer Technology,
+              <br /> Gobi Arts & Science College (Autonomous),
+              <br /> Gobichettipalayam.
             </h3>
           </div>
         </div>
 
-        <div>
-          {/* International Advisory Committee */}
-          <div className="about_heads">
-            <h2>International Advisory Committee</h2>
+        {/* Advisory Committee */}
+        <div className="committe_box">
+          <div className="committe_heads">
+            <h2>Advisory Committee</h2>
+            <div className="sub_lines"></div>
           </div>
-          <div className="advisory">
+
+          <div className="advisory col_com">
             <h3>
-              Dr. Balamurugan Easwaran,
-              <br />
-              Professor & Registrar, Texila American University, Zambia, West
-              Africa.
+              Dr. S. Anitha,
+              <br /> Assistant Professor,
+              <br /> Faculty of Science and Humanities,
+              <br /> SRM Institute of Science & Technology,
+              <br /> Tiruchirappalli, Tamil Nadu.
             </h3>
             <h3>
-              Mr. Vishnuprasath N.S,
-              <br />
-              Projects, Cognizant Technology Solutions (CTS), USA.
+              Dr. J. Chinnaiyan,
+              <br /> Assistant Professor,
+              <br /> School of Computer Science & IT,
+              <br /> Jain University,
+              <br /> Bangalore, Karnataka.
             </h3>
             <h3>
-              Dr. R. Ananda Kishore,
-              <br />
-              Faculty Member, Department of Computer Science, Stanford
-              University, USA.
+              Dr. J. Rejikumar,
+              <br /> Assistant Professor,
+              <br /> Faculty of Commerce and Management Studies,
+              <br /> University of Kerala,
+              <br /> Thiruvananthapuram, Kerala.
             </h3>
             <h3>
-              Prof. Dr. Samiru Gayan,
-              <br />
-              Professor, Department of Computer Science & Engineering,
-              University of Jaffna, Sri Lanka.
+              Dr. V. Kavitha,
+              <br /> Associate Professor,
+              <br /> School of Computer Science,
+              <br /> VIT University,
+              <br /> Vellore, Tamil Nadu.
             </h3>
             <h3>
-              Dr. M. L. Matangulu Genge,
-              <br />
-              Chairman & Executive Director, Njata TV, Nairobi, Kenya.
+              Dr. K. K. Ramesh,
+              <br /> Assistant Professor,
+              <br /> Department of Computer Science,
+              <br /> Kristu Jayanti College (Autonomous),
+              <br /> Bangalore, Karnataka.
             </h3>
             <h3>
-              Dr. W. G. Sisira Kumara,
-              <br />
-              Senior Lecturer, Department of Computing & Information Systems,
-              Sabaragamuwa University of Sri Lanka.
+              Dr. B. Palanisamy,
+              <br /> Associate Professor,
+              <br /> Department of Computer Science,
+              <br /> PSG College of Arts & Science (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
             </h3>
             <h3>
-              Prof. Dr. N. M. Nikhil Raj,
-              <br />
-              Head of Department, Computer Science and Engineering, Federal
-              University of Petroleum Resources, Nigeria.
+              Dr. S. Sampath Kumar,
+              <br /> Assistant Professor,
+              <br /> Department of Information Technology,
+              <br /> Sri Krishna Arts & Science College (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
             </h3>
             <h3>
-              Dr. T. Sivakumar,
-              <br />
-              Associate Professor, Department of Computer Science & Engineering,
-              Vaigai College of Engineering, Madurai.
+              Dr. S. Kavitha,
+              <br /> Associate Professor,
+              <br /> Department of Computer Science,
+              <br /> PSG College of Arts & Science (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
             </h3>
             <h3>
-              Dr. J. Ramamoorthy,
-              <br />
-              Senior Scientist, Indian Space Research Organization (ISRO),
-              Bengaluru.
+              Dr. N. Manikandan,
+              <br /> Assistant Professor,
+              <br /> Department of Computer Science,
+              <br /> Bharathiar University,
+              <br /> Coimbatore, Tamil Nadu.
             </h3>
             <h3>
-              Dr. B. Ramakrishna Rama,
-              <br />
-              Dean of Students, Cleveland State University, USA.
+              Dr. S. Saravanan,
+              <br /> Associate Professor,
+              <br /> Department of Computer Science,
+              <br /> Bharathiar University,
+              <br /> Coimbatore, Tamil Nadu.
+            </h3>
+            <h3>
+              Dr. R. Manikandan,
+              <br /> Assistant Professor,
+              <br /> Department of Computer Science,
+              <br /> Bharathiar University,
+              <br /> Coimbatore, Tamil Nadu.
+            </h3>
+            <h3>
+              Dr. M. Krishnaveni,
+              <br /> Associate Professor,
+              <br /> Department of Computer Science,
+              <br /> PSG College of Arts & Science (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
+            </h3>
+            <h3>
+              Dr. S. Prabha,
+              <br /> Associate Professor,
+              <br /> Department of Computer Science,
+              <br /> PSG College of Arts & Science (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
+            </h3>
+            <h3>
+              Dr. R. Velmurugan,
+              <br /> Associate Professor,
+              <br /> Department of Computer Science,
+              <br /> PSG College of Arts & Science (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
+            </h3>
+            <h3>
+              Dr. K. Praveen Kumar,
+              <br /> Assistant Professor,
+              <br /> Department of Computer Science,
+              <br /> PSG College of Arts & Science (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
+            </h3>
+            <h3>
+              Dr. R. Vidhya,
+              <br /> Associate Professor,
+              <br /> Department of Computer Science,
+              <br /> PSG College of Arts & Science (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
+            </h3>
+            <h3>
+              Dr. K. M. Rajkumar,
+              <br /> Associate Professor,
+              <br /> Department of Computer Science,
+              <br /> PSG College of Arts & Science (Autonomous),
+              <br /> Coimbatore, Tamil Nadu.
             </h3>
           </div>
         </div>

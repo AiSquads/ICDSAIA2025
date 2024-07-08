@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const SubmissionGuidelines = () => {
   return (
     <div className="cont">
-      <div className="about_heads">
+      <div className="subm_head">
         <h2>Submission Guidelines</h2>
+        <div className="lines"></div>
       </div>
+
       <div className="subm_container">
-        <div>
-          <h4 className="title">Paper Format</h4>
-          <div className="lines"></div>
+        <div className="mt-5 mb-10">
+          <h2 className="title mb-3">Paper Format</h2>
+          <div className="sub_lines"></div>
         </div>
-        <div className="content_para ">
+        <div className="content_para">
           <p>
             Please strictly follow instructions for paper formatting otherwise
             the paper, which does not meet these guidelines may not be
@@ -23,12 +27,13 @@ const SubmissionGuidelines = () => {
           </p>
         </div>
       </div>
-      <div>
-        <div>
-          <h4 className="title">Manuscript Preparation</h4>
-          <div className="lines"></div>
+
+      <div className="subm_container">
+        <div className="mt-5 mb-10">
+          <h2 className="title mb-3">Manuscript Preparation</h2>
+          <div className="sub_lines"></div>
         </div>
-        <div className="content_para ">
+        <div className="content_para">
           <ul>
             <li>
               The manuscript should be prepared using aforementioned MS WORD
@@ -65,13 +70,14 @@ const SubmissionGuidelines = () => {
               starting from 1 and must be duly cited / referred within the text.
             </li>
           </ul>
-          <div>
-            <h5 className="title sub_tit">
+
+          <div className="mt-10">
+            <h5 className=" sub_tit">
               When writing your paper, the submission must fulfill these main
               criteria:
             </h5>
           </div>
-          <div>
+          <div className="mt-3">
             <ul className="subcont">
               <li>Originality of the research work</li>
               <li>Clarity on the research flow</li>
@@ -82,9 +88,9 @@ const SubmissionGuidelines = () => {
               </li>
             </ul>
           </div>
-          <div>
-            <h5 className="tit">
-              <span className="sub_tit">Note: </span> Submitted papers should
+          <div className="mt-3">
+            <h5 className="tit text-red-500">
+              <span className="sub_tit font-extrabold text-black">Note: </span> Submitted papers should
               not be under review or submitted for publication elsewhere during
               the review period. All papers will be peer reviewed by at least
               three independent referees.

@@ -3,6 +3,8 @@ import Publication_head from "../Publication_Components/Publication_head";
 import PeerReviewProcess from "../Publication_Components/PeerReviewProcess";
 import HowItWorks from "../Publication_Components/HowItWorks";
 
+import "../../assets/css/publication.css";
+
 const Publication = () => {
   return (
     <div>

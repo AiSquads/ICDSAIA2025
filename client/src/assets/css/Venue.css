@@ -1,26 +1,5 @@
 @import url(root.css);
 
-.mains {
-  padding: 20px;
-}
-
-.subm_head {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.subm_head h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-.lines {
-  width: 50px;
-  height: 5px;
-  background-color: black;
-  margin: 0 auto;
-}
-
 .content {
   text-align: center;
 }
@@ -40,15 +19,6 @@
 .detail span {
   font-size: 1.2em;
   color: black;
-}
-
-.about_heads {
-  margin-bottom: 20px;
-}
-
-.about_heads h2 {
-  font-size: 1.8em;
-  color: var(--fifth-color);
 }
 
 .location {

@@ -23,6 +23,13 @@
   --primary-text: "Poppins", sans-serif;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+}
+
 /* Apply colors and fonts to body and global elements */
 body {
   background-color: var(--background-color);
@@ -76,13 +83,11 @@ textarea:focus {
   outline: none;
 }
 
-hr {
-  border: 1px solid var(--primary-color-light);
-}
 
 ::selection {
   background: var(--highlight-color);
   color: var(--secondary-color);
 }
+
 
 /* Additional global styles as needed */

@@ -15,6 +15,10 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header>
       <nav className="navs">
@@ -27,16 +31,24 @@ const Header = () => {
         <div className={`navbar ${menuOpen ? "open" : ""}`}>
           <ul className="nav_list">
             <li className="items">
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={closeMenu}>
+                Home
+              </Link>
             </li>
             <li className="items">
-              <Link to="/comm">Committee</Link>
+              <Link to="/comm" onClick={closeMenu}>
+                Committee
+              </Link>
             </li>
             <li className="items">
-              <Link to="/call">Call for Papers</Link>
+              <Link to="/call" onClick={closeMenu}>
+                Call for Papers
+              </Link>
             </li>
             <li className="items">
-              <Link to="/keynote">Keynote</Link>
+              <Link to="/keynote" onClick={closeMenu}>
+                Keynote
+              </Link>
             </li>
             <li className="items dropdown">
               <div className="nav_dropdown">
@@ -50,24 +62,25 @@ const Header = () => {
               </div>
               <ul>
                 <li>
-                  <Link to="/submission">Submission</Link>
+                  <Link to="/submission" onClick={closeMenu}>
+                    Submission
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/publication">Publication</Link>
+                  <Link to="/publication" onClick={closeMenu}>
+                    Publication
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/registration">Registration</Link>
+                  <Link to="/registration" onClick={closeMenu}>
+                    Registration
+                  </Link>
                 </li>
               </ul>
             </li>
-            <li className="items">
-              <Link to="/venue">Venue</Link>
-            </li>
-            <li className="items">
-              <a href="/date">Dates</a>
-            </li>
+
             <li className="items dropdown">
-              <div className="nav_dropdown">
+              <div className="nav_dropdown about_navitem">
                 <a href="#">About</a>
                 <img
                   src={Toparrow}
@@ -78,35 +91,52 @@ const Header = () => {
               </div>
               <ul>
                 <li>
-                  <Link to="/dwnld">Download</Link>
+                  <Link to="/dwnld" onClick={closeMenu}>
+                    Download
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/accom">Accommodation</Link>
+                  <Link to="/accom" onClick={closeMenu}>
+                    Accommodation
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/faq">FAQ</Link>
+                  <Link to="/faq" onClick={closeMenu}>
+                    FAQ
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/gobi">About Gobi</Link>
+                  <Link to="/gobi" onClick={closeMenu}>
+                    About Gobi
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/tectovia">Tectovia</Link>
+                  <Link to="/tectovia" onClick={closeMenu}>
+                    Tectovia
+                  </Link>
                 </li>
               </ul>
             </li>
             <li className="items">
-              <Link to="/contact">Contact</Link>
+              <Link to="/venue" onClick={closeMenu}>
+                Venue
+              </Link>
+            </li>
+            <li className="items">
+              <a href="/date" onClick={closeMenu}>
+                Dates
+              </a>
+            </li>
+            <li className="items">
+              <Link to="/contact" onClick={closeMenu}>
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
 
-        <div className="line" id="line" onClick={toggleMenu}>
-          <img
-            id="icon"
-            className="menu"
-            src={menuOpen ? closeIcon : menuIcon}
-            alt="Menu Icon"
-          />
+        <div className="line" onClick={toggleMenu}>
+          <img id="icon" className="menu" src={menuIcon} alt="Menu Icon" />
         </div>
       </nav>
     </header>

@@ -7,25 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const DateDetails = () => {
   const eventRefs = useRef([]);
-  const lineRef = useRef(null);
 
   useEffect(() => {
-    // Animate the line
-    gsap.fromTo(
-      lineRef.current,
-      { height: 0 },
-      {
-        height: "100%",
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: lineRef.current,
-          start: "top 80%",
-          end: "bottom top",
-          scrub: true,
-        },
-      }
-    );
-
     // Animate the events
     eventRefs.current.forEach((ref, index) => {
       gsap.fromTo(
@@ -40,9 +23,9 @@ const DateDetails = () => {
             start: "top 80%",
             end: "bottom 20%",
             toggleActions: "play none none none",
-            once: true,
+            once: true
           },
-          delay: index * 0.3,
+          delay: index * 0.3
         }
       );
     });
@@ -50,15 +33,21 @@ const DateDetails = () => {
 
   return (
     <div className="date_details_container">
-      <div className="line" ref={lineRef}></div>
       <div className="date_details">
+        <div className="subm_head">
+          <h2>Important Dates</h2>
+          <div className="lines"></div>
+        </div>
         {[
           { title: "Submission of Abstract", date: "November 10, 2024" },
           { title: "Submission of Full Paper", date: "November 30, 2024" },
-          { title: "Authors Acceptance Notification", date: "December 30, 2024" },
+          {
+            title: "Authors Acceptance Notification",
+            date: "December 30, 2024"
+          },
           { title: "Final Manuscript Due", date: "January 15, 2025" },
           { title: "Registration Deadline", date: "January 16, 2025 (Open)" },
-          { title: "Conference Dates", date: "February 27 & 28, 2025" },
+          { title: "Conference Dates", date: "February 27 & 28, 2025" }
         ].map((event, index) => (
           <div
             className={`event event_box_0${index + 1}`}

@@ -1,76 +1,159 @@
-@import url(root.css);
-.mains {
-  padding: 20px;
-}
-
-.subm_head {
+/* Base styles */
+.about_contents {
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-.subm_head h2 {
-  font-size: 2em;
+.trc {
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  width: 60%;
+  border-radius: 20px;
+  border: 1px solid rgb(213, 213, 213);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Hide initially */
+  transform: translateY(50px); /* Initial position off-screen */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.call_heads {
+  margin-bottom: 50px;
+}
+
+.call_heads h2 {
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-.lines {
-  width: 50px;
-  height: 5px;
-  background-color: black;
+.call_heads .sub_lines {
+  height: 2px;
+  background-color: #000;
+  width: 30px;
   margin: 0 auto;
 }
 
-.about_contents p {
-  text-align: center;
-}
-
-.track1 {
-  margin-top: 20px;
-}
-
-.about_heads {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.about_heads h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.call_list {
-  background: #ffffff;
-  width: 50%;
-  margin: 30px auto;
-  border-radius: 20px;
-}
-
 .call_list ul {
-  margin-left: 20%;
-  padding: 20px 0;
+  list-style: none;
+  padding: 0;
 }
 
 .call_list ul li {
+  font-weight: 400;
   line-height: 40px;
   font-size: 18px;
-  font-weight: 500;
-  text-align: justify;
+  text-align: center;
+  position: relative;
+  padding-left: 25px; /* Add space for the icon */
+  margin-bottom: 20px; /* Increased bottom margin */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-@media only screen and (max-width: 574px) {
-  .call_list {
-    width: 95%;
+.call_list ul li::before {
+  content: "⚪"; /* Use a bullet point or another symbol */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #000; /* Icon color */
+}
+
+.call_list ul hr {
+  width: 0;
+  /* height: 2px; */
+  color: #c1c1c1;
+  border: 0.2px solid rgb(86, 86, 86);
+  border-radius: 50px;
+  margin: 10px auto;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.call_list ul li:hover {
+  color: #aa00ff; /* Change text color on hover */
+  transform: translateX(10px); /* Slightly move the list item on hover */
+}
+
+/* Responsive styles for larger tablets */
+@media only screen and (max-width: 992px) {
+  .trc {
+    width: 80%;
+  }
+  .call_heads {
+    margin-bottom: 30px;
   }
 
-  .call_list ul {
-    margin-left: 0;
-    padding: 10%;
+  .call_heads h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+  }
+
+  .call_list ul li {
+    font-size: 16px;
+  }
+}
+
+/* Responsive styles for smaller tablets */
+@media only screen and (max-width: 768px) {
+  .trc {
+    width: 90%;
+  }
+  .call_heads {
+    margin-bottom: 30px;
+  }
+
+  .call_heads h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+
+  .call_list ul li {
+    font-size: 15px;
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media only screen and (max-width: 574px) {
+  .about_contents {
+    margin-bottom: 30px;
+  }
+
+  .trc {
+    margin: 20px auto;
+    width: 95%;
+    padding: 15px;
+  }
+  .call_heads {
+    margin-bottom: 10px;
+  }
+
+  .call_heads h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+
+  .call_heads .sub_lines {
+    width: 20px;
   }
 
   .call_list ul li {
     line-height: 30px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
-    text-align: justify;
+    text-align: center;
   }
+}
+
+/* Additional hover effects */
+.trc:hover {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  opacity: 1;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }

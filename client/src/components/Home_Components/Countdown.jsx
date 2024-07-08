@@ -28,17 +28,26 @@ const Countdown = () => {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        setCountdown({ days, hours, minutes, seconds });
+        // Check if countdown actually needs to update before setting state
+        if (
+          days !== countdown.days ||
+          hours !== countdown.hours ||
+          minutes !== countdown.minutes ||
+          seconds !== countdown.seconds
+        ) {
+          setCountdown({ days, hours, minutes, seconds });
+        }
       } else {
         setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
     };
 
-    updateCountdown();
+    updateCountdown(); // Initial call when component mounts
+
     const interval = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, [targetDate]); // Only re-run effect if targetDate changes
 
   useEffect(() => {
     const elementsToReveal = document.querySelectorAll(".reveal");
@@ -59,39 +68,7 @@ const Countdown = () => {
         }
       );
     });
-  }, []);
-
-  useEffect(() => {
-    gsap.fromTo(
-      ".time-box span.seconds",
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5, ease: "power2.out" }
-    );
-  }, [countdown.seconds]);
-
-  useEffect(() => {
-    gsap.fromTo(
-      ".time-box span.minutes",
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5, ease: "power2.out" }
-    );
-  }, [countdown.minutes]);
-
-  useEffect(() => {
-    gsap.fromTo(
-      ".time-box span.hours",
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5, ease: "power2.out" }
-    );
-  }, [countdown.hours]);
-
-  useEffect(() => {
-    gsap.fromTo(
-      ".time-box span.days",
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5, ease: "power2.out" }
-    );
-  }, [countdown.days]);
+  }, []); // Empty dependency array to run only once on mount
 
   useEffect(() => {
     const floatingAnimation = (element, distance, duration) => {
@@ -127,65 +104,63 @@ const Countdown = () => {
         }
       );
     });
-  }, []);
+  }, []); // Empty dependency array to run only once on mount
 
   return (
-    <div>
-      <div className="timer_container">
-        <div className="blur_box">
-          <div className="div_1"></div>
-          <div className="div_2"></div>
-          <div className="div_3"></div>
-        </div>
-        <div className="countdown reveal">
-          <h3 className="text-black font-extralight reveal">
-            Countdown for Conference
-          </h3>
-          <div className="countdown-timer reveal">
-            <div className="time-box reveal">
-              <motion.span
-                className="days"
-                key={countdown.days}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, scale: 2 }}
-              >
-                {countdown.days}
-              </motion.span>
-              <p>Days</p>
-            </div>
-            <div className="time-box reveal">
-              <motion.span
-                className="hours"
-                key={countdown.hours}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, scale: 2 }}
-              >
-                {countdown.hours}
-              </motion.span>
-              <p>Hours</p>
-            </div>
-            <div className="time-box reveal">
-              <motion.span
-                className="minutes"
-                key={countdown.minutes}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, scale: 2 }}
-              >
-                {countdown.minutes}
-              </motion.span>
-              <p>Minutes</p>
-            </div>
-            <div className="time-box reveal">
-              <motion.span
-                className="seconds"
-                key={countdown.seconds}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, scale: 2 }}
-              >
-                {countdown.seconds}
-              </motion.span>
-              <p>Seconds</p>
-            </div>
+    <div className="timer_container">
+      <div className="blur_box">
+        <div className="div_1"></div>
+        <div className="div_2"></div>
+        <div className="div_3"></div>
+      </div>
+      <div className="countdown reveal">
+        <h3 className="text-black font-extralight reveal">
+          Countdown for Conference
+        </h3>
+        <div className="countdown-timer reveal">
+          <div className="time-box reveal">
+            <motion.span
+              className="days"
+              key={countdown.days}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, scale: 2 }}
+            >
+              {countdown.days}
+            </motion.span>
+            <p>Days</p>
+          </div>
+          <div className="time-box reveal">
+            <motion.span
+              className="hours"
+              key={countdown.hours}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, scale: 2 }}
+            >
+              {countdown.hours}
+            </motion.span>
+            <p>Hours</p>
+          </div>
+          <div className="time-box reveal">
+            <motion.span
+              className="minutes"
+              key={countdown.minutes}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, scale: 2 }}
+            >
+              {countdown.minutes}
+            </motion.span>
+            <p>Minutes</p>
+          </div>
+          <div className="time-box reveal">
+            <motion.span
+              className="seconds"
+              key={countdown.seconds}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, scale: 2 }}
+            >
+              {countdown.seconds}
+            </motion.span>
+            <p>Seconds</p>
           </div>
         </div>
       </div>

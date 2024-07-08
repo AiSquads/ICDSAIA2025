@@ -1,7 +1,6 @@
-// Register.jsx
-
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +11,9 @@ const Register = () => {
     college: "",
     country: ""
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,17 +22,27 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
+
     try {
-      // Example of sending data to a backend API (replace with your actual endpoint)
-      const response = await axios.post(
-        "http://localhost:5000/api/register",
-        formData
-      );
+      const response = await axios.post("http://localhost:5000/reg", formData);
       console.log("Registration successful:", response.data);
       // Optionally reset form fields or show success message
+      navigate("/"); // Redirect to the home page
     } catch (error) {
       console.error("Registration failed:", error);
-      // Handle error state or show error message
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        setError(error.response.data.message);
+      } else {
+        setError("Registration failed. Please try again.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,7 +59,6 @@ const Register = () => {
             onChange={handleChange}
             required
           />
-
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -57,7 +68,6 @@ const Register = () => {
             onChange={handleChange}
             required
           />
-
           <label htmlFor="mobile">Mobile:</label>
           <input
             type="tel"
@@ -67,7 +77,6 @@ const Register = () => {
             onChange={handleChange}
             required
           />
-
           <label htmlFor="whatsapp">Whatsapp:</label>
           <input
             type="tel"
@@ -77,7 +86,6 @@ const Register = () => {
             onChange={handleChange}
             required
           />
-
           <label htmlFor="college">College:</label>
           <input
             type="text"
@@ -87,7 +95,6 @@ const Register = () => {
             onChange={handleChange}
             required
           />
-
           <label htmlFor="country">Country:</label>
           <input
             type="text"
@@ -97,8 +104,14 @@ const Register = () => {
             onChange={handleChange}
             required
           />
-
-          <button type="submit">Submit</button>
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <>
+              <button type="submit">Submit</button>
+              {error && <p style={{ color: "red" }}>{error}</p>}
+            </>
+          )}
         </form>
       </div>
     </main>

@@ -1,19 +1,16 @@
-// database/db.js
-
 const mongoose = require("mongoose");
 
-const mongoURI = "YOUR_MONGODB_URI_HERE";
+const mongoURI = "mongodb://localhost:27017/conference";
 
 const connectDB = async () => {
   try {
     await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true
+      useUnifiedTopology: true
     });
     console.log("MongoDB connected");
   } catch (err) {
-    console.error(err.message);
+    console.error("MongoDB connection error:", err.message);
     process.exit(1);
   }
 };

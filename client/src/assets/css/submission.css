@@ -1,0 +1,131 @@
+/* General styles for submission container */
+.submission-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensures full viewport height */
+  padding: 20px; /* Adjust padding as needed */
+}
+
+/* Styles for each submission item */
+.submission-item {
+  margin: 20px 0; /* Adjust margin between items */
+  opacity: 1; /* Start with opacity 0 for scroll reveal */
+}
+
+/* Additional styles for specific components if needed */
+.submission-item h2 {
+  font-size: 24px; /* Example: Adjust heading styles */
+  margin-bottom: 10px;
+}
+
+.submission-item p {
+  font-size: 16px; /* Example: Adjust paragraph styles */
+  line-height: 1.6;
+}
+
+.submission-item hr {
+  margin-top: 10px;
+  border: none;
+  border-top: 1px solid #ccc; /* Example: Adjust horizontal rule styles */
+  width: 50%;
+}
+
+.cont {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.subm_link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.download_div {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.link {
+  display: inline-block;
+  font-size: 1.2em;
+  color: #5a0096;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px #464646;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.link:hover {
+  background: #d08fff;
+  color: #ffffff;
+  border: 1px solid #daa3ff;
+  box-shadow: 0px 0px 10px #5a0096;
+  transform: scale(1.1);
+}
+
+.download_link1 {
+  display: inline-block;
+  font-size: 1.2em;
+  color: #5a0096;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px #464646;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add transition for transform */
+}
+
+.download_link1:hover {
+  background: #d08fff;
+  color: #ffffff;
+  border: 1px solid #daa3ff;
+  box-shadow: 0px 0px 10px #5a0096;
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+@media only screen and (max-width: 768px) {
+  .subm_link {
+    gap: 20px;
+  }
+
+  .cont {
+    padding: 0;
+  }
+
+  .download_div {
+    max-width: 100%;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.subm_container {
+  height: auto;
+  margin: 20px;
+  padding: 20px;
+  padding-bottom: 40px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.content_para ul li {
+  margin: 10px;
+}
+
+.policy_box {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+}

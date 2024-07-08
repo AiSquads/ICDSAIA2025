@@ -1,6 +1,69 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger plugin
 
 const Publication_head = () => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger plugin
+
+    gsap.utils.toArray(".content").forEach((content) => {
+      gsap.fromTo(
+        content,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: content,
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: true // Smooth scrubbing effect
+          }
+        }
+      );
+    });
+
+    gsap.utils.toArray(".pub_logo, .about_heads").forEach((element) => {
+      gsap.fromTo(
+        element,
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: true // Smooth scrubbing effect
+          }
+        }
+      );
+    });
+
+    gsap.utils.toArray(".lines").forEach((line) => {
+      gsap.fromTo(
+        line,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: line,
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: true // Smooth scrubbing effect
+          }
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="contt">
       <div className="subm_head">
@@ -92,7 +155,8 @@ const Publication_head = () => {
               submission includes an author-submitted abstract. If your
               submission is available in full-text PDF but does not include an
               abstract, only bibliographic information will be included in Ei
-              Compendex.
+              Compendex.+-
+              
             </p>
           </div>
         </div>

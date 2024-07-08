@@ -5,7 +5,7 @@ import "../../assets/css/footer.css"; // Make sure to create a CSS file for styl
 const Footer = () => {
   return (
     <footer>
-      <div class="footer-content">
+      <div className="footer-content">
         <h3>About conference</h3>
         <p>
           The conference aims at bringing together researchers and practitioners
@@ -14,43 +14,43 @@ const Footer = () => {
           researchers to present papers and generate discussions in recent
           trends and developments of computing.
         </p>
-        <ul class="socials">
+        <ul className="socials">
           <li>
             <a href="#">
-              <i class="fa-solid fa-envelope"></i>
+              <i className="fa-solid fa-envelope"></i>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-telegram"></i>
+              <i className="fa-brands fa-telegram"></i>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-whatsapp"></i>
+              <i className="fa-brands fa-whatsapp"></i>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-linkedin"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </a>
           </li>
         </ul>
       </div>
-      <div class="footer-bottom">
+      <div className="footer-bottom">
         <h3>Contact</h3>
         <div className="contact">
           {" "}
-          <i class="fa-solid fa-user"></i>
+          <i className="fa-solid fa-user"></i>
           <p> Dr. M. Ramalingam</p>
-          <i class="fa-solid fa-phone"></i>
+          <i className="fa-solid fa-phone"></i>
           <p> 9677688934</p>
-          <i class="fa-solid fa-envelope"></i>
+          <i className="fa-solid fa-envelope"></i>
           <p>icdsaia@gascgobi.ac.in</p>
         </div>
       </div>

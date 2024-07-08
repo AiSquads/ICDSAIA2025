@@ -1,10 +1,9 @@
-// Faq.jsx
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Faq = () => {
   const [questions, setQuestions] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetchQuestions();
@@ -12,10 +11,16 @@ const Faq = () => {
 
   const fetchQuestions = async () => {
     try {
-      const response = await axios.get("/fetchQuestions"); // Assuming endpoint to fetch questions
-      setQuestions(response.data);
+      const response = await axios.get("http://localhost:5000/fetchQuestions");
+      console.log("Response data:", response.data); // Debugging line
+      if (Array.isArray(response.data)) {
+        setQuestions(response.data);
+      } else {
+        setError("Unexpected response format");
+      }
     } catch (error) {
       console.error("Error fetching questions:", error);
+      setError("Failed to fetch questions");
     }
   };
 
@@ -23,7 +28,11 @@ const Faq = () => {
     <div>
       <main className="mains">
         <div className="reg_container">
-          <form action="query" method="post" className="reg_form">
+          <form
+            action="http://localhost:5000/query"
+            method="post"
+            className="reg_form"
+          >
             <label htmlFor="">
               Name : <span>*</span>
             </label>
@@ -42,6 +51,7 @@ const Faq = () => {
         <div className="about_heads">
           <h2>Questions</h2>
         </div>
+        {error && <h3>{error}</h3>}
         {questions.length > 0 ? (
           <div className="question_div">
             {questions.map((data, index) => (
@@ -53,7 +63,7 @@ const Faq = () => {
             ))}
           </div>
         ) : (
-          <h3>No Data Found</h3>
+          !error && <h3>No Data Found</h3>
         )}
       </main>
     </div>

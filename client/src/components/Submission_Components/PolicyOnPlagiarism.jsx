@@ -2,10 +2,13 @@ import React from "react";
 
 const PolicyOnPlagiarism = () => {
   return (
-    <div className="cont">
-      <h4 className="title">Policy on Plagiarism</h4>
-      <div className="lines"></div>
-      <div className="content_para">
+    <div className="cont ">
+      <div className="subm_head">
+        <h2>Policy on Plagiarism</h2>
+        <div className="lines"></div>
+      </div>
+
+      <div className="content_para policy_box">
         <ul>
           <li>
             Authors are requested to kindly refrain from plagiarism in any form.
