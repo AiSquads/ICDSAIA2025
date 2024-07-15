@@ -2,11 +2,12 @@ import React from "react";
 
 const PeerReviewProcess = () => {
   return (
-    <div>
-      <div className="about_heads">
-        <h2>Peer Review Process</h2>
-      </div>
-      <div className="about_contents ">
+    <div className="mains ">
+      <div className="peerreview_contents ">
+        <div className="subm_head">
+          <h2>Peer Review Process</h2>
+          <div className="lines"></div>
+        </div>
         <p>
           Peer review is the system used to assess the quality of a manuscript
           before it is published. Independent researchers in the relevant

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const HowItWorks = () => {
   return (
-    <div>
-      <div className="about_heads">
+    <div className="how-it-works-container">
+      <div className="subm_head">
         <h2>How Does it Work</h2>
+        <div className="lines"></div>
       </div>
-      <div className="about_contents ">
+
+      <div className="about_contents">
         <p>
           When a manuscript is submitted to a journal, it is assessed to see if
           it meets the criteria for submission. If it does, the editorial team

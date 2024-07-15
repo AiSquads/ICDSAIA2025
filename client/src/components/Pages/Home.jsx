@@ -11,22 +11,22 @@ import Head from "../Home_Components/H_Head";
 const Home = () => {
   return (
     <div>
-      <section>
+      <section className="section_container">
         {/* Head content */}
         <Head />
 
         {/* Logos container */}
         <Logos />
       </section>
-      <section>
+      <section className="section_container">
         {/* countdown */}
         <Countdown />
       </section>
-      <section className="  justify-center">
+      <section className=" section_container justify-center">
         {/* Date Details */}
         <DateDeatils />
       </section>
-      <section className="about_section">
+      <section className=" section_container about_section">
         {/* Abouts */}
         <About />
       </section>

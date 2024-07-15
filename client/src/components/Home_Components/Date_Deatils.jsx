@@ -34,10 +34,10 @@ const DateDetails = () => {
   return (
     <div className="date_details_container">
       <div className="date_details">
-        <div className="subm_head">
+        {/* <div className="subm_head">
           <h2>Important Dates</h2>
           <div className="lines"></div>
-        </div>
+        </div> */}
         {[
           { title: "Submission of Abstract", date: "November 10, 2024" },
           { title: "Submission of Full Paper", date: "November 30, 2024" },

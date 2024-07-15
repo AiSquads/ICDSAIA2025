@@ -48,9 +48,18 @@ const Register = () => {
 
   return (
     <main className="mains">
-      <div className="reg_container">
-        <form onSubmit={handleSubmit} className="reg_form">
-          <label htmlFor="name">Name:</label>
+      <div className="reg_container p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4">
+        <div className="subm_head">
+          <h2 className="">REGISTRATION</h2>
+          <div className="lines"></div>
+        </div>
+        <form onSubmit={handleSubmit} className="reg_form space-y-4">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Name:
+          </label>
           <input
             type="text"
             name="name"
@@ -58,8 +67,14 @@ const Register = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           />
-          <label htmlFor="email">Email:</label>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Email:
+          </label>
           <input
             type="email"
             name="email"
@@ -67,8 +82,14 @@ const Register = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           />
-          <label htmlFor="mobile">Mobile:</label>
+          <label
+            htmlFor="mobile"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Mobile:
+          </label>
           <input
             type="tel"
             name="mobile"
@@ -76,8 +97,14 @@ const Register = () => {
             value={formData.mobile}
             onChange={handleChange}
             required
+            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           />
-          <label htmlFor="whatsapp">Whatsapp:</label>
+          <label
+            htmlFor="whatsapp"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Whatsapp:
+          </label>
           <input
             type="tel"
             name="whatsapp"
@@ -85,8 +112,14 @@ const Register = () => {
             value={formData.whatsapp}
             onChange={handleChange}
             required
+            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           />
-          <label htmlFor="college">College:</label>
+          <label
+            htmlFor="college"
+            className="block text-sm font-medium text-gray-700"
+          >
+            College:
+          </label>
           <input
             type="text"
             name="college"
@@ -94,8 +127,14 @@ const Register = () => {
             value={formData.college}
             onChange={handleChange}
             required
+            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           />
-          <label htmlFor="country">Country:</label>
+          <label
+            htmlFor="country"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Country:
+          </label>
           <input
             type="text"
             name="country"
@@ -103,13 +142,19 @@ const Register = () => {
             value={formData.country}
             onChange={handleChange}
             required
+            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           />
           {loading ? (
-            <p>Loading...</p>
+            <p className="text-sm text-gray-500">Loading...</p>
           ) : (
             <>
-              <button type="submit">Submit</button>
-              {error && <p style={{ color: "red" }}>{error}</p>}
+              <button
+                type="submit"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#aa50ff] hover:bg-[#4f015a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Submit
+              </button>
+              {error && <p className="text-sm font-semibold text-red-500">{error}</p>}
             </>
           )}
         </form>

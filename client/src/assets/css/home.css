@@ -1,7 +1,7 @@
 @import url("root.css");
 
 /* General Section Styling */
-section {
+.section_container {
   height: 100vh;
   box-sizing: border-box;
   padding: 5px;
@@ -240,6 +240,8 @@ section {
 
 .about_section:nth-child(even) {
   background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .blur_box {

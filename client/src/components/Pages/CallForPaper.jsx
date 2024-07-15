@@ -25,8 +25,8 @@ const CallForPaper = () => {
           scrollTrigger: {
             trigger: trackRef,
             start: "top 60%",
-            end: "bottom 20%",
-            scrub: true
+            end: "bottom 15%",
+            // scrub: true
           }
         }
       );
@@ -46,7 +46,7 @@ const CallForPaper = () => {
                 trigger: item,
                 start: "top 80%",
                 end: "bottom 50%",
-                scrub: true
+                // scrub: true
               }
             }
           );
@@ -63,7 +63,7 @@ const CallForPaper = () => {
                 trigger: item,
                 start: "top 80%",
                 end: "bottom 20%",
-                scrub: true
+                // scrub: true
               }
             }
           );
