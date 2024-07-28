@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger plugin
+// import React, { useEffect } from "react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger plugin
 import ManuscriptSubmission from "../Submission_Components/ManuscriptSubmissio";
 import PaperFormat from "../Submission_Components/PaperFormat";
 import SubmissionGuidelines from "../Submission_Components/SubmissionGuidelines";

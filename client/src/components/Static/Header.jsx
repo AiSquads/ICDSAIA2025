@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import logoImg from "../../assets/images/logos/Office.png";
 import menuIcon from "../../assets/images/icons/menu.png";
-import closeIcon from "../../assets/images/icons/close.png";
+// import closeIcon from "../../assets/images/icons/close.png";
 import Toparrow from "../../assets/images/icons/top-arrow.png";
 
 import "../../assets/css/header.css";

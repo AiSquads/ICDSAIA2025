@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import agricultureImage from "../../assets/images/gobi/agri.jpg";
 import kodiveriImage from "../../assets/images/gobi/kodiveri2.jpg";
 import pachamalaiImage from "../../assets/images/gobi/pachamalai.jpg";

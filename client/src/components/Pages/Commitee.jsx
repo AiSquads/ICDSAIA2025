@@ -35,7 +35,7 @@ const Committee = () => {
         <div className="lines"></div>
       </div>
 
-      <Blur_Box />
+      {/* <Blur_Box /> */}
 
       <div className="committe_container">
         {/* Chief Patrons */}

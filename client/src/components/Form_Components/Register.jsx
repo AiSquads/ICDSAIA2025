@@ -48,10 +48,10 @@ const Register = () => {
     }
   };
 
-  const handleCloseModal = () => {
-    setSuccess(false);
-    setError("");
-  };
+  // const handleCloseModal = () => {
+  //   setSuccess(false);
+  //   setError("");
+  // };
 
   return (
     <main className="mains max-w-5xl mx-auto p-8 rounded-md">
