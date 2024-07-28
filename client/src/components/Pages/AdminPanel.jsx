@@ -10,7 +10,7 @@ const AdminPanel = () => {
   useEffect(() => {
     // Fetch registration data
     axios
-      .get("http://localhost:5000/api/registration")
+      .get("http://localhost:5000/reg")
       .then((response) => {
         setRegistrationData(Array.isArray(response.data) ? response.data : []);
       })
@@ -20,7 +20,7 @@ const AdminPanel = () => {
 
     // Fetch FAQ data
     axios
-      .get("http://localhost:5000/api/faq")
+      .get("http://localhost:5000/faq")
       .then((response) => {
         setFaqData(Array.isArray(response.data) ? response.data : []);
       })
@@ -31,25 +31,32 @@ const AdminPanel = () => {
 
   return (
     <main className="mains">
-      <div className="about_heads">
-        <h2>Admin Panel</h2>
+      <div className="subm_head">
+        <h2 className="">Admin Panel</h2>
+        <div className="lines"></div>
       </div>
 
-      <div className="admin-section">
-        <h3>Registration Data</h3>
+      <div className="admin-section text-center m-10">
+        <div className="subm_head">
+          <h2 className="">Registration Data </h2>
+          <div className="sub_lines"></div>
+        </div>
         {registrationData.length > 0 ? (
           <RegistrationList registrations={registrationData} />
         ) : (
-          <h4>No Registration Data Found</h4>
+          <h4> No Registration Data Found </h4>
         )}
       </div>
 
-      <div className="admin-section">
-        <h3>FAQ Data</h3>
+      <div className="admin-section text-center m-10">
+        <div className="subm_head">
+          <h2 className="">FAQ Data </h2>
+          <div className="sub_lines"></div>
+        </div>
         {faqData.length > 0 ? (
           <FAQList faqs={faqData} />
         ) : (
-          <h4>No FAQ Data Found</h4>
+          <h4> No FAQ Data Found </h4>
         )}
       </div>
     </main>

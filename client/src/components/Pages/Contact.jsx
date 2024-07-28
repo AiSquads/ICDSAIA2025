@@ -9,9 +9,9 @@ const Contact = () => {
           <h2>CONTACT</h2>
           <div className="lines"></div>
         </div>
-        <div className="mail_contact">
-          <div className="about_heads">
-            <h2>Email</h2>
+        <div className="mail_contact mt-10">
+          <div className="">
+            <h1 className="text-2xl mb-5">Email</h1>
           </div>
           <a href="mailto:icdsaia@gascgobi.ac.in?subject=Contact Support">
             icdsaia@gascgobi.ac.in

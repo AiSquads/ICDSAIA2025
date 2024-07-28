@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongoURI = "mongodb://localhost:27017/conference";
+const mongoURI = "mongodb://localhost:27017/ICDSAIA-2025";
 
 const connectDB = async () => {
   try {

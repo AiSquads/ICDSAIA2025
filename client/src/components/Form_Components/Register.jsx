@@ -6,13 +6,13 @@ const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    mobile: "",
-    whatsapp: "",
+    phone: "",
     college: "",
     country: ""
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,10 +26,12 @@ const Register = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:5000/reg", formData);
+      const response = await axios.post("/reg", formData);
       console.log("Registration successful:", response.data);
-      // Optionally reset form fields or show success message
-      navigate("/"); // Redirect to the home page
+      setSuccess(true); // Set success message state
+      setTimeout(() => {
+        navigate("/"); // Redirect to the home page after a delay
+      }, 2000); // Redirect after 2 seconds
     } catch (error) {
       console.error("Registration failed:", error);
       if (
@@ -46,116 +48,145 @@ const Register = () => {
     }
   };
 
+  const handleCloseModal = () => {
+    setSuccess(false);
+    setError("");
+  };
+
   return (
-    <main className="mains">
-      <div className="reg_container p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4">
+    <main className="mains max-w-5xl mx-auto p-8 rounded-md">
+      <div className="reg_container mb-10 ">
         <div className="subm_head">
           <h2 className="">REGISTRATION</h2>
           <div className="lines"></div>
         </div>
-        <form onSubmit={handleSubmit} className="reg_form space-y-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Name:
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-          />
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Email:
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-          />
-          <label
-            htmlFor="mobile"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Mobile:
-          </label>
-          <input
-            type="tel"
-            name="mobile"
-            id="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            required
-            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-          />
-          <label
-            htmlFor="whatsapp"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Whatsapp:
-          </label>
-          <input
-            type="tel"
-            name="whatsapp"
-            id="whatsapp"
-            value={formData.whatsapp}
-            onChange={handleChange}
-            required
-            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-          />
-          <label
-            htmlFor="college"
-            className="block text-sm font-medium text-gray-700"
-          >
-            College:
-          </label>
-          <input
-            type="text"
-            name="college"
-            id="college"
-            value={formData.college}
-            onChange={handleChange}
-            required
-            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-          />
-          <label
-            htmlFor="country"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Country:
-          </label>
-          <input
-            type="text"
-            name="country"
-            id="country"
-            value={formData.country}
-            onChange={handleChange}
-            required
-            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-          />
+        <form onSubmit={handleSubmit} className="reg_form space-y-10">
+          {error && (
+            <div
+              className="error_modal bg-red-500 text-white p-4 rounded-lg shadow-md"
+              role="alert"
+            >
+              <div className="flex justify-between items-center">
+                <p>{error}</p>
+                <button
+                  onClick={() => setError("")}
+                  className="text-sm text-white ml-4"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
+          {success && (
+            <div
+              className="success_modal bg-green-500 text-white p-4 rounded-lg shadow-md"
+              role="alert"
+            >
+              <div className="flex justify-between items-center">
+                <p>Registration successful!</p>
+                <button
+                  onClick={() => setSuccess(false)}
+                  className="text-sm text-white ml-4"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
+          <div className="relative">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="pl-2 block w-full border-0 rounded-sm border-b-2 border-[#6d6d6d] py-3 focus:border-[#aa50ff] focus:outline-none peer bg-inherit"
+            />
+            <label
+              htmlFor="name"
+              className="ml-2 absolute left-0 top-2 text-gray-500 cursor-text transition-all peer-focus:text-xs peer-focus:top-[-1rem] peer-focus:text-[#000000] peer-focus:font-bold peer-valid:text-xs peer-valid:top-[-1rem] peer-valid:text-[#000000] peer-valid:font-bold"
+            >
+              Name:
+            </label>
+          </div>
+          <div className="relative">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="pl-2 block w-full border-0 rounded-sm border-b-2 border-[#6d6d6d] py-3 focus:border-[#aa50ff] focus:outline-none peer bg-inherit"
+            />
+            <label
+              htmlFor="email"
+              className="ml-2 absolute left-0 top-2 text-gray-500 cursor-text transition-all peer-focus:text-xs peer-focus:top-[-1rem] peer-focus:text-[#000000] peer-focus:font-bold peer-valid:text-xs peer-valid:top-[-1rem] peer-valid:text-[#000000] peer-valid:font-bold"
+            >
+              Email:
+            </label>
+          </div>
+          <div className="relative">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="pl-2 block w-full border-0 rounded-sm border-b-2 border-[#6d6d6d] py-3 focus:border-[#aa50ff] focus:outline-none peer bg-inherit"
+            />
+            <label
+              htmlFor="phone"
+              className="ml-2 absolute left-0 top-2 text-gray-500 cursor-text transition-all peer-focus:text-xs peer-focus:top-[-1rem] peer-focus:text-[#000000] peer-focus:font-bold peer-valid:text-xs peer-valid:top-[-1rem] peer-valid:text-[#000000] peer-valid:font-bold"
+            >
+              Phone:
+            </label>
+          </div>
+          <div className="relative">
+            <input
+              type="text"
+              name="college"
+              id="college"
+              value={formData.college}
+              onChange={handleChange}
+              required
+              className="pl-2 block w-full border-0 rounded-sm border-b-2 border-[#6d6d6d] py-3 focus:border-[#aa50ff] focus:outline-none peer bg-inherit"
+            />
+            <label
+              htmlFor="college"
+              className="ml-2 absolute left-0 top-2 text-gray-500 cursor-text transition-all peer-focus:text-xs peer-focus:top-[-1rem] peer-focus:text-[#000000] peer-focus:font-bold peer-valid:text-xs peer-valid:top-[-1rem] peer-valid:text-[#000000] peer-valid:font-bold"
+            >
+              College:
+            </label>
+          </div>
+          <div className="relative">
+            <input
+              type="text"
+              name="country"
+              id="country"
+              value={formData.country}
+              onChange={handleChange}
+              required
+              className="pl-2 block w-full border-0 rounded-sm border-b-2 border-[#6d6d6d] py-3 focus:border-[#aa50ff] focus:outline-none peer bg-inherit"
+            />
+            <label
+              htmlFor="country"
+              className="ml-2 absolute left-0 top-2 text-gray-500 cursor-text transition-all peer-focus:text-xs peer-focus:top-[-1rem] peer-focus:text-[#000000] peer-focus:font-bold peer-valid:text-xs peer-valid:top-[-1rem] peer-valid:text-[#000000] peer-valid:font-bold"
+            >
+              Country:
+            </label>
+          </div>
           {loading ? (
-            <p className="text-sm text-gray-500">Loading...</p>
+            <p className="text-sm text-gray-500">Submitting...</p>
           ) : (
-            <>
-              <button
-                type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#aa50ff] hover:bg-[#4f015a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Submit
-              </button>
-              {error && <p className="text-sm font-semibold text-red-500">{error}</p>}
-            </>
+            <button
+              type="submit"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#aa50ff] hover:bg-[#4f015a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Register
+            </button>
           )}
         </form>
       </div>

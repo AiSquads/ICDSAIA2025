@@ -1,0 +1,236 @@
+body {
+  overflow-x: hidden;
+}
+
+.blur_boxs {
+  position: absolute;
+  display: flex;
+  gap: 5rem;
+  width: 90%;
+  margin-top: 5%;
+}
+
+.blur_top,
+.blur_bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.blur_top {
+  margin-top: 10%;
+}
+
+.blur_bottom {
+  margin-top: 100%;
+}
+
+.blur_box_01,
+.blur_box_02,
+.blur_box_03,
+.blur_box_04,
+.blur_box_05,
+.blur_box_06,
+.blur_box_07,
+.blur_box_08,
+.blur_box_09,
+.blur_box_10 {
+  border-radius: 50%;
+  opacity: 0; /* Start with opacity 0 for scroll reveal */
+}
+
+.blur_box_01,
+.blur_box_03,
+.blur_box_05,
+.blur_box_07,
+.blur_box_09 {
+  z-index: 999;
+}
+
+.blur_box_01 {
+  width: 300px;
+  height: 300px;
+  background: rgba(177, 255, 104, 0.876);
+  margin-left: 100%;
+  top: 10%;
+  box-shadow: 0 8px 32px 0 rgba(123, 255, 0, 0.876),
+    0px 0px 50px rgba(123, 255, 0, 0.876);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(169, 255, 88, 0.876);
+}
+
+.blur_box_02 {
+  width: 250px;
+  height: 250px;
+  background: rgba(189, 16, 224, 0.45);
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 32px 0 rgba(189, 16, 224, 0.881),
+    0px 0px 50px rgba(189, 16, 224, 0.796);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(189, 16, 224, 0.45);
+}
+
+.blur_box_03 {
+  width: 100px;
+  height: 100px;
+  align-items: flex-end;
+  border-radius: 20px;
+  background: rgba(16, 224, 75, 0.605);
+  margin-left: 200%;
+  top: 20%;
+  box-shadow: 0 8px 32px 0 rgba(16, 224, 75, 0.945),
+    0px 0px 50px rgba(16, 224, 75, 0.945);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(16, 224, 75, 0.945);
+}
+
+.blur_box_04 {
+  width: 100px;
+  height: 100px;
+  background: rgb(0, 255, 229);
+  margin-left: 95%;
+  top: 40%;
+  box-shadow: 0 8px 32px 0 rgba(0, 255, 229), 0px 0px 50px rgb(95, 234, 220);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(0, 255, 229);
+}
+
+.blur_box_05 {
+  width: 100px;
+  height: 100px;
+  align-self: flex-end;
+  background: rgba(224, 109, 16, 0.637);
+  margin-top: 300%;
+  top: 30%;
+  box-shadow: 0 8px 32px 0 rgba(224, 109, 16, 0.637),
+    0px 0px 50px rgba(224, 109, 16, 0.637);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(224, 109, 16, 0.637);
+}
+
+.blur_box_06 {
+  width: 500px;
+  height: 500px;
+  background: rgba(118, 255, 64, 0.587);
+  left: 50%;
+  margin-top: -50%;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 32px 0 rgba(75, 224, 16, 0.58),
+    0px 0px 50px rgba(75, 224, 16, 0.58);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(75, 224, 16, 0.58);
+}
+
+.blur_box_07 {
+  width: 200px;
+  height: 200px;
+  background: rgba(224, 75, 75, 0.288);
+  left: 20%;
+  margin-top: 40%;
+  box-shadow: 0 8px 32px 0 rgba(224, 75, 75, 0.613),
+    0px 0px 50px rgba(224, 75, 75, 0.548);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(224, 75, 75, 0.899);
+}
+
+.blur_box_08 {
+  width: 200px;
+  height: 200px;
+  background: rgba(226, 226, 226, 0.934);
+  margin-left: 10%;
+  margin-top: 20%;
+  box-shadow: 0 8px 32px 0 rgba(226, 226, 226, 0.934),
+    0px 0px 50px rgba(226, 226, 226, 0.934);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(226, 226, 226, 0.934);
+}
+
+.blur_box_09 {
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+  background: rgba(75, 224, 132, 0.45);
+  margin-left: 80%;
+  margin-top: 15%;
+  box-shadow: 0 8px 32px 0 rgba(75, 224, 132, 0.945),
+    0px 0px 50px rgba(75, 224, 132, 0.801);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(75, 224, 149, 0.899);
+}
+
+.blur_box_10 {
+  width: 300px;
+  height: 300px;
+  background: rgba(159, 75, 224, 0.45);
+  margin-top: 50%;
+  margin-left: -10%;
+  bottom: 5%;
+  box-shadow: 0 8px 32px 0 rgba(177, 75, 224, 0.801),
+    0px 0px 50px rgba(177, 75, 224, 0.801);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(177, 75, 224, 0.801);
+}
+
+@media (max-width: 768px) {
+  .blur_box_01,
+  .blur_box_02,
+  .blur_box_03,
+  .blur_box_04,
+  .blur_box_05,
+  .blur_box_06,
+  .blur_box_07,
+  .blur_box_08,
+  .blur_box_09,
+  .blur_box_10 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .blur_box_01 {
+    margin-left: 100%;
+  }
+  .blur_box_02 {
+    left: 50%;
+    top: 15%;
+  }
+  .blur_box_03 {
+    margin-left: 200%;
+  }
+  .blur_box_04 {
+    margin-left: 95%;
+  }
+  .blur_box_05 {
+    margin-top: 300%;
+  }
+  .blur_box_06 {
+    margin-top: -50%;
+  }
+  .blur_box_07 {
+    margin-top: 40%;
+  }
+  .blur_box_08 {
+    margin-left: 10%;
+    margin-top: 20%;
+  }
+  .blur_box_09 {
+    margin-left: 80%;
+    margin-top: 15%;
+  }
+  .blur_box_10 {
+    margin-top: 50%;
+    margin-left: -10%;
+  }
+}

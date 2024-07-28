@@ -157,7 +157,7 @@
   background-color: rgba(227, 192, 255, 0.571);
   border: 1px solid #c04aff;
   padding: 15px;
-  margin-bottom: 20px; /* Increased margin for separation */
+  margin-bottom: 20px;
   border-radius: 20px;
   box-shadow: 0 0 15px #c04aff;
 }
@@ -255,9 +255,9 @@
 .div_2,
 .div_3 {
   position: absolute;
-  width: 200px; /* Adjust size as needed */
-  height: 200px; /* Adjust size as needed */
-  border-radius: 50%; /* Ensure round shape */
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .div_1 {

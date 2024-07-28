@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import agricultureImage from "../../assets/images/gobi/agri.jpg";
@@ -11,69 +11,56 @@ import perumpallamImage from "../../assets/images/gobi/perumpallam.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 const Gobichettipalayam = () => {
+  const sectionsRef = useRef([]);
+  const imagesRef = useRef([]);
+
   useEffect(() => {
-    // Section animation
-    gsap.fromTo(
-      ".section",
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "easeInOut",
-        scrollTrigger: {
-          trigger: ".section",
-          start: "top 80%",
-          end: "bottom 90%",
-          scrub: true
+    sectionsRef.current.forEach((section, index) => {
+      gsap.fromTo(
+        section,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "easeInOut",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "top 50%",
+            scrub: true
+          }
         }
-      }
-    );
+      );
+    });
 
-    // Image animation
-    gsap.fromTo(
-      ".image img",
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "easeInOut",
-        scrollTrigger: {
-          trigger: ".image img",
-          start: "top 80%",
-          end: "bottom 90%",
-          scrub: true
+    imagesRef.current.forEach((image, index) => {
+      gsap.fromTo(
+        image,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "easeInOut",
+          scrollTrigger: {
+            trigger: image,
+            start: "top 80%",
+            end: "top 50%",
+            scrub: true
+          }
         }
-      }
-    );
-
-    // Gallery image animation
-    gsap.fromTo(
-      ".gallery img",
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "easeInOut",
-        scrollTrigger: {
-          trigger: ".gallery img",
-          start: "top 80%",
-          end: "bottom 90%",
-          scrub: true
-        }
-      }
-    );
+      );
+    });
   }, []);
 
   return (
     <div className="min-h-screen">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="space-y-12">
-
+          
           {/* Section 1: Gobichettipalayam Overview */}
-          <section className="section">
+          <section ref={(el) => (sectionsRef.current[0] = el)}>
             <div className="subm_head text-center mb-12">
               <h2 className="text-4xl md:text-5xl mb-4">
                 Gobichettipalayam
@@ -88,11 +75,13 @@ const Gobichettipalayam = () => {
             </div>
             <div className="image flex flex-wrap justify-center mt-8 gap-4">
               <img
+                ref={(el) => (imagesRef.current[0] = el)}
                 className="w-full md:w-1/2 lg:w-1/3 object-cover rounded-lg shadow-lg"
                 src={agricultureImage}
                 alt="Agriculture"
               />
               <img
+                ref={(el) => (imagesRef.current[1] = el)}
                 className="w-full md:w-1/2 lg:w-1/3 object-cover rounded-lg shadow-lg"
                 src={kodiveriImage}
                 alt="Kodiveri Dam"
@@ -101,7 +90,7 @@ const Gobichettipalayam = () => {
           </section>
 
           {/* Section 2: History */}
-          <section className="section">
+          <section ref={(el) => (sectionsRef.current[1] = el)}>
             <div className="subm_head text-center mb-8">
               <h2 className="text-4xl md:text-5xl mb-4">
                 History
@@ -120,7 +109,7 @@ const Gobichettipalayam = () => {
           </section>
 
           {/* Section 3: Culture */}
-          <section className="section">
+          <section ref={(el) => (sectionsRef.current[2] = el)}>
             <div className="subm_head text-center mb-8">
               <h2 className="text-4xl md:text-5xl mb-4">
                 Culture
@@ -138,7 +127,7 @@ const Gobichettipalayam = () => {
           </section>
 
           {/* Section 4: Places of Interest */}
-          <section className="section p-6">
+          <section className="p-6" ref={(el) => (sectionsRef.current[3] = el)}>
             <div className="subm_head text-center mb-8">
               <h2 className="text-4xl md:text-5xl mb-4">
                 Places of Interest
@@ -157,7 +146,10 @@ const Gobichettipalayam = () => {
           </section>
 
           {/* Section 5: Gallery */}
-          <section className="gallery mt-12">
+          <section
+            className="gallery mt-12"
+            ref={(el) => (sectionsRef.current[4] = el)}
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {[
                 { src: pachamalaiImage, alt: "Pachamalai" },
@@ -166,8 +158,12 @@ const Gobichettipalayam = () => {
                 { src: perumpallamImage, alt: "Perumpallam" },
                 { src: agricultureImage, alt: "Agriculture" },
                 { src: kodiveriImage, alt: "Kodiveri Dam" }
-              ].map((image) => (
-                <div key={image.alt} className="relative group">
+              ].map((image, index) => (
+                <div
+                  key={image.alt}
+                  className="relative group"
+                  ref={(el) => (imagesRef.current[index + 2] = el)}
+                >
                   <img
                     className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105"
                     src={image.src}
@@ -180,7 +176,6 @@ const Gobichettipalayam = () => {
               ))}
             </div>
           </section>
-          
         </div>
       </main>
     </div>
