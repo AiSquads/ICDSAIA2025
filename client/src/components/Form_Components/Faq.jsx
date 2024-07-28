@@ -18,7 +18,7 @@ const Faq = () => {
 
   const fetchQuestions = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/faq");
+      const response = await axios.get("http://localhost:80/faq");
       if (Array.isArray(response.data)) {
         setQuestions(response.data);
       } else {
@@ -37,7 +37,7 @@ const Faq = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/faq", form);
+      await axios.post("http://localhost:80/faq", form);
       setForm({ name: "", email: "", mobile: "", query: "" });
       setSuccess("Question submitted successfully");
       setError("");

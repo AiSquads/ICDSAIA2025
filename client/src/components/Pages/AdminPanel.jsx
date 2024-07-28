@@ -10,7 +10,7 @@ const AdminPanel = () => {
   useEffect(() => {
     // Fetch registration data
     axios
-      .get("http://localhost:5000/reg")
+      .get("http://localhost:80/reg")
       .then((response) => {
         setRegistrationData(Array.isArray(response.data) ? response.data : []);
       })
@@ -20,7 +20,7 @@ const AdminPanel = () => {
 
     // Fetch FAQ data
     axios
-      .get("http://localhost:5000/faq")
+      .get("http://localhost:80/faq")
       .then((response) => {
         setFaqData(Array.isArray(response.data) ? response.data : []);
       })

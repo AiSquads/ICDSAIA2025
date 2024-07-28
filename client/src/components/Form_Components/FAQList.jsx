@@ -12,7 +12,7 @@ const FAQList = ({ faqs, onDelete }) => {
     const answer = answers[id];
 
     try {
-      await axios.put(`http://localhost:5000/faq/${id}`, {
+      await axios.put(`http://localhost:80/faq/${id}`, {
         ans: answer
       });
       alert("Answer submitted successfully");
@@ -24,7 +24,7 @@ const FAQList = ({ faqs, onDelete }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/faq/${id}`);
+      await axios.delete(`http://localhost:80/faq/${id}`);
       alert("Question deleted successfully");
       onDelete(id);
     } catch (error) {
