@@ -9,6 +9,7 @@ const DateDetails = () => {
 
   useEffect(() => {
     // Animate the events
+    
     eventRefs.current.forEach((ref, index) => {
       gsap.fromTo(
         ref,
