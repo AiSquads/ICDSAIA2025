@@ -83,133 +83,111 @@ const CallForPaper = () => {
           <div className="lines"></div>
         </div>
         <div className="about_contents">
-          <p>
-            Prospective authors are invited to submit the manuscripts of their
-            original research contributions and review articles in the following
-            areas but not limited to
-          </p>
-        </div>
+            <div className="about_content_box_1">
+              <p>
+              The International Conference on Smart and AI-Driven Technologies for Sustainable
+              Development (ICSATSD2025) invites researchers, scholars, and industry professionals
+              to submit their original research papers for presentation. The conference, scheduled for
+              27th - 28th February 2025 at Erode Arts and Science College (Autonomous), Erode, 
+              Tamilnadu, India, seeks to explore innovative solutions and advancements in smart
+              technologies and artificial intelligence that contribute to sustainable development..
+              </p>
+            </div>
+
+
+          </div>
       </div>
 
       <div className="track1">
         {/* Render each track without using map function */}
         <div className="trc" ref={(el) => (trackRefs.current[0] = el)}>
           <div className="call_heads">
-            <h2>Artificial Intelligence and Applications</h2>
+            <h2> Smart Cities, Sustainability, and Environment</h2>
             <div className="sub_lines"></div>
           </div>
           <div className="call_list">
             <ul>
               <li>
-                AI Algorithms
+              	Smart Cities and Urban Planning
                 <hr className="line-left" />
               </li>
               <li>
-                Artificial Intelligence tools & Applications
+              	AI for Environmental Sustainability
                 <hr className="line-left" />
               </li>
               <li>
-                Internet of Things 
+              	Renewable Energy Technologies
                 <hr className="line-left" />
               </li>
               <li>
-                Data Mining and Machine Learning Tools
+              	Sustainable Transportation Systems
                 <hr className="line-left" />
               </li>
               <li>
-                Heuristic and AI Planning Strategies and Tools
+              	Smart Agriculture and Food Security
                 <hr className="line-left" />
               </li>
-              <li>
-                Hybrid Intelligent Systems
-                <hr className="line-left" />
-              </li>
-              <li>
-                Information Retrieval
-                <hr className="line-left" />
-              </li>
-              <li>
-                Intelligent System Architectures
-                <hr className="line-left" />
-              </li>
-              <li>
-                Pervasive Computing and Ambient Intelligence
-                <hr className="line-left" />
-              </li>
-              <li>
-                Robotics
-                <hr className="line-left" />
-              </li>
-              <li>
-                Web Intelligence Applications
-                <hr className="line-left" />
-              </li>
-              <li>Recent Trends and Developments</li>
+
             </ul>
           </div>
         </div>
 
         <div className="trc" ref={(el) => (trackRefs.current[1] = el)}>
           <div className="call_heads">
-            <h2>Data Engineering</h2>
+            <h2>AI, Machine Learning, and Emerging Technologies</h2>
             <div className="sub_lines"></div>
           </div>
           <div className="call_list">
             <ul>
               <li>
-                Database-as-a-Service and Cloud/Edge Computing
+              	Internet of Things (IoT) Applications
                 <hr className="line-left" />
               </li>
               <li>
-                Big Data Analytics
+              	Machine Learning and Data Analytics
                 <hr className="line-left" />
               </li>
               <li>
-                Smart Data Clustering and Classification Techniques
+              	Robotics and Automation
                 <hr className="line-left" />
               </li>
               <li>
-                Data Integration and Interoperability
+              	Intelligent Manufacturing Systems
                 <hr className="line-left" />
               </li>
               <li>
-                Smart Data Grids and Processing
+              	Big Data and Cloud Computing
                 <hr className="line-left" />
               </li>
-              <li>
-                Peer-to-peer, Parallel and Distributed Databases
-                <hr className="line-left" />
-              </li>
-              <li>Data Visualization and Interactive Data</li>
-            </ul>
+
+              </ul>
           </div>
         </div>
 
         <div className="trc" ref={(el) => (trackRefs.current[2] = el)}>
           <div className="call_heads">
-            <h2>Explorations</h2>
+            <h2> Ethics, Security, and Human-Centric AI</h2>
             <div className="sub_lines"></div>
           </div>
           <div className="call_list">
             <ul>
               <li>
-                Web Data Mining and Information Extraction
+              	AI Ethics and Policy
                 <hr className="line-left" />
               </li>
               <li>
-                Smart Information Retrieval and Integration
+              	Cybersecurity in Smart Technologies
                 <hr className="line-left" />
               </li>
               <li>
-                Uncertain, Probabilistic and Approximate Databases
+            	 Human-Computer Interaction
+              </li>
+              <li>
+              AI in Education and Learning Systems
                 <hr className="line-left" />
               </li>
               <li>
-                Smart Data Management and Workflows
-                <hr className="line-left" />
-              </li>
-              <li>
-                Advanced Query Processing and Optimization
+              	AI in Education and Learning Systems
                 <hr className="line-left" />
               </li>
               <li>Data Mining and Knowledge Discovery</li>
@@ -217,7 +195,7 @@ const CallForPaper = () => {
           </div>
         </div>
 
-        <div className="trc" ref={(el) => (trackRefs.current[3] = el)}>
+        {/* <div className="trc" ref={(el) => (trackRefs.current[3] = el)}>
           <div className="call_heads">
             <h2>Computational Intelligence</h2>
             <div className="sub_lines"></div>
@@ -275,7 +253,7 @@ const CallForPaper = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </main>
   );

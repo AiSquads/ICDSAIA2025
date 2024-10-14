@@ -41,11 +41,13 @@ const DateDetails = () => {
           { title: "Submission of Abstract", date: "November 10, 2024" },
           { title: "Submission of Full Paper", date: "November 30, 2024" },
           {
-            title: "Authors Acceptance Notification",
-            date: "December 30, 2024"
+            title: "Author's Acceptance Notification",
+            date: "December 10, 2024"
           },
-          { title: "Final Manuscript Due", date: "January 15, 2025" },
-          { title: "Registration Deadline", date: "January 16, 2025 (Open)" },
+          { title: "Registration Commencing", date: "December 1, 2024" },
+          { title: "Final Manuscript Due", date: "December 25, 2025" },
+          { title: "Registration Deadline", date: "January 25, 2025 (Open)" },
+          { title: "Camera Ready Paper Submission", date: "November 30, 2024" },
           { title: "Conference Dates", date: "February 27 & 28, 2025" }
         ].map((event, index) => (
           <div
